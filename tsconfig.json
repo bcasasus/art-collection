@@ -17,7 +17,17 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true
+		"noFallthroughCasesInSwitch": true,
+		"types": ["node"],
+		"paths": {
+		  "@rmt/assets": ["./src/assets"],
+		  "@rmt/routes": ["./src/routes/index.ts"],
+		  "@rmt/pages": ["./src/ui/components/pages/index.ts"],
+		  "@rmt/layout": ["./src/ui/components/layout/index.ts"],
+		  "@rmt/atoms": ["./src/ui/components/atoms/index.ts"],
+		  "@rmt/molecule": ["./src/ui/components/molecules/index.ts"],
+		  "@rmt/organisms": ["./src/ui/components/organisms/index.ts"],
+		}
 	},
 	"include": ["src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
