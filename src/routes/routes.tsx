@@ -1,5 +1,5 @@
-import { Layout } from '../ui/components/Layout';
-import { Character, Error, Home, Results } from '../ui/components/pages';
+import { Layout } from '@rmt/layout';
+import { Character, Error, Home, Results } from '@rmt/pages';
 
 const routes = [
 	{
