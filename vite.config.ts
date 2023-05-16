@@ -7,13 +7,53 @@ export default defineConfig({
 	plugins: [react()],
 	resolve: {
 		alias: [
-			{ find: '@rmt/assets', replacement: path.resolve(__dirname, 'src/assets') },
-			{ find: '@rmt/routes', replacement: path.resolve(__dirname, 'src/routes/index.ts') },
-			{ find: '@rmt/pages', replacement: path.resolve(__dirname, 'src/ui/components/pages/index.ts') },
-			{ find: '@rmt/layout', replacement: path.resolve(__dirname, 'src/ui/components/layout/index.ts') },
-			{ find: '@rmt/atoms', replacement: path.resolve(__dirname, 'src/ui/components/atoms/index.ts') },
-			{ find: '@rmt/molecules', replacement: path.resolve(__dirname, 'src/ui/components/molecules/index.ts') },
-			{ find: '@rmt/organisms', replacement: path.resolve(__dirname, 'src/ui/components/organisms/index.ts') },
-		  ],
-	  },
+			{
+				find: '@rmt/assets',
+				replacement: path.resolve(__dirname, 'src/assets'),
+			},
+			{
+				find: '@rmt/context',
+				replacement: path.resolve(__dirname, 'src/context/index.ts'),
+			},
+			{
+				find: '@rmt/routes',
+				replacement: path.resolve(__dirname, 'src/routes/index.ts'),
+			},
+			{
+				find: '@rmt/pages',
+				replacement: path.resolve(
+					__dirname,
+					'src/ui/components/pages/index.ts'
+				),
+			},
+			{
+				find: '@rmt/layout',
+				replacement: path.resolve(
+					__dirname,
+					'src/ui/components/layout/index.ts'
+				),
+			},
+			{
+				find: '@rmt/atoms',
+				replacement: path.resolve(
+					__dirname,
+					'src/ui/components/atoms/index.ts'
+				),
+			},
+			{
+				find: '@rmt/molecules',
+				replacement: path.resolve(
+					__dirname,
+					'src/ui/components/molecules/index.ts'
+				),
+			},
+			{
+				find: '@rmt/organisms',
+				replacement: path.resolve(
+					__dirname,
+					'src/ui/components/organisms/index.ts'
+				),
+			},
+		],
+	},
 });
