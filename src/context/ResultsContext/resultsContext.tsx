@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useMemo, useReducer } from 'react';
 import { ResultsContextDispatch, ResultsContextState } from './redux/types';
 import {
 	resultsContextDispatcherFactory,
@@ -30,9 +30,13 @@ export const ResultsContextProvider = ({
 	const dispatcher = resultsContextDispatcherFactory(dispatch);
 
 	const resultsStateContextValue = state;
-	const resultsDispatchContextValue: ResultsContextDispatch = {
-		setResults: dispatcher(setResultsAction),
-	};
+	const resultsDispatchContextValue: ResultsContextDispatch = useMemo(
+		() => ({
+			setResults: dispatcher(setResultsAction),
+		}),
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[dispatch]
+	);
 
 	return (
 		<ResultsStateContext.Provider value={resultsStateContextValue}>
