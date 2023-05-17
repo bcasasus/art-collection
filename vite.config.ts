@@ -16,8 +16,20 @@ export default defineConfig({
 				replacement: path.resolve(__dirname, 'src/context/index.ts'),
 			},
 			{
+				find: '@rmt/hooks',
+				replacement: path.resolve(__dirname, 'src/hooks/index.ts'),
+			},
+			{
+				find: '@rmt/model',
+				replacement: path.resolve(__dirname, 'src/model/index.ts'),
+			},
+			{
 				find: '@rmt/routes',
 				replacement: path.resolve(__dirname, 'src/routes/index.ts'),
+			},
+			{
+				find: '@rmt/services',
+				replacement: path.resolve(__dirname, 'src/services/index.ts'),
 			},
 			{
 				find: '@rmt/pages',
