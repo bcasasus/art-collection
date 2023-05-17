@@ -1,10 +1,9 @@
 import { ResultsContextProvider } from '@rmt/context';
-import Results from './Results';
 
 const ResultsContainer = () => {
 	return (
 		<ResultsContextProvider>
-			<Results />
+			<div>Results container</div>
 		</ResultsContextProvider>
 	);
 };

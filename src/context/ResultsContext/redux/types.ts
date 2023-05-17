@@ -1,5 +1,7 @@
+import { type Character } from '@rmt/model';
+
 export interface ResultsContextState {
-	results: ResultsContext[];
+	results: Character[];
 }
 
 export interface ResultsContextDispatch {
@@ -7,24 +9,8 @@ export interface ResultsContextDispatch {
 	setResults: (payload: any) => void;
 }
 
-export interface ResultsContext {
-	id: number;
-	name: string;
-	status: 'Alive' | 'Dead';
-	species: string;
-	type: string;
-	gender: 'Male' | 'Female';
-	originLocation: Location;
-	currentLocation: Location;
-}
-
-export interface Location {
-	name: string;
-	url: string;
-}
-
 export interface ResultsContextActionPayload {
-	results: ResultsContext[];
+	results: Character[];
 }
 export enum ResultsContextActionType {
 	SetResults = 'set results',
