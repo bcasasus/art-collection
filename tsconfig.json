@@ -22,7 +22,10 @@
 		"paths": {
 			"@rmt/assets": ["./src/assets"],
 			"@rmt/context": ["./src/context/index.ts"],
+			"@rmt/hooks": ["./src/hooks/index.ts"],
+			"@rmt/model": ["./src/model/index.ts"],
 			"@rmt/routes": ["./src/routes/index.ts"],
+			"@rmt/services": ["./src/services/index.ts"],
 			"@rmt/pages": ["./src/ui/components/pages/index.ts"],
 			"@rmt/layout": ["./src/ui/components/layout/index.ts"],
 			"@rmt/atoms": ["./src/ui/components/atoms/index.ts"],
