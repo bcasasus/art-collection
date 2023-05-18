@@ -1,8 +1,8 @@
 import { Character } from '@rmt/model';
 import {
-	CharactersApiResponse,
-	ResultsApiResponse,
-} from '../../response/types';
+	type CharactersApiResponse,
+	type ResultsApiResponse,
+} from '@rmt/services';
 
 export const mapCharacters = ({
 	results,

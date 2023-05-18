@@ -1,4 +1,8 @@
-import { CallApiFactory, CallApiStructure, Params } from './types';
+import {
+	type CallApiFactory,
+	type CallApiStructure,
+	type Params,
+} from './types';
 
 const objectParamsToQueryParams =
 	(params: Params) =>
@@ -30,25 +34,33 @@ const buildQueryParams = (params: Params): string => {
 	return querParams;
 };
 
-const buildUrl = (endpoint: string, params: Params): string => {
+const buildUrl = (apiUrl: string, endpoint: string, params: Params): string => {
 	if (!endpoint) {
-		throw new Error('Endpoint must be a string and must not be empty.');
+		throw new Error('Endpoint must not be empty.');
 	}
 
 	const queryParams = buildQueryParams(params);
-	const url = endpoint.concat(queryParams);
+	const endpointWithQueryParams = endpoint.concat(queryParams);
+	const url = apiUrl.concat(endpointWithQueryParams);
 
 	return url;
 };
 
-export const callApi: CallApiStructure = async (endpoint = '', params = {}) => {
-	const apiUrl = buildUrl(endpoint, params);
-	const response = await fetch(apiUrl);
+export const callApi: CallApiStructure = async (
+	apiUrl,
+	endpoint,
+	params = {}
+) => {
+	if (!apiUrl) {
+		throw new Error('ApiUrl must not be empty.');
+	}
+	const url = buildUrl(apiUrl, endpoint, params);
+	const response = await fetch(url);
 	const data = response.json();
 
 	return data;
 };
 
 export const callApiFactory: CallApiFactory =
-	(callApi) => (endpoint) => (params) =>
-		callApi(endpoint, params);
+	(apiUrl, callApi) => (endpoint) => (params) =>
+		callApi(apiUrl, endpoint, params);
