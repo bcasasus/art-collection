@@ -1,25 +1,35 @@
-import { ReactNode, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useApi } from '../../../../hooks/useApi/useApi';
 import { mapCharacters } from '@rmt/services';
-import { useResultsDispatchContext } from '@rmt/context';
+import {
+	ResultsDispatchContextProvider,
+	ResultsStateContextProvider,
+	initialResultsStateContext,
+	setResultsAction,
+} from '@rmt/context';
+import { resultsContextReducer } from '@rmt/context';
 
-interface ResultsProps {
-	children: ReactNode;
-}
-
-const Results = ({ children }: ResultsProps) => {
+const Results = () => {
+	const [state, dispatch] = useReducer(
+		resultsContextReducer,
+		initialResultsStateContext
+	);
 	const { fetchCharacters } = useApi();
-	const { setResults } = useResultsDispatchContext();
-
 	useEffect(() => {
 		(async () => {
 			const response = await fetchCharacters();
 			const characters = mapCharacters(response);
-			setResults({ results: characters });
+			dispatch(setResultsAction({ results: characters }));
 		})();
-	}, [fetchCharacters, setResults]);
+	}, [fetchCharacters]);
 
-	return <div className="results-page">{children}</div>;
+	return (
+		<ResultsStateContextProvider state={state}>
+			<ResultsDispatchContextProvider dispatch={dispatch}>
+				<div className="results-page"></div>
+			</ResultsDispatchContextProvider>
+		</ResultsStateContextProvider>
+	);
 };
 
 export default Results;
