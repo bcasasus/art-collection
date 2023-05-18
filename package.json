@@ -14,7 +14,6 @@
 	},
 	"dependencies": {
 		"@types/node": "^20.1.4",
-		"eslint-plugin-prettier": "^4.2.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.11.1"
@@ -27,6 +26,7 @@
 		"@vitejs/plugin-react": "^4.0.0",
 		"eslint": "^8.38.0",
 		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.3.4",
 		"husky": "^8.0.3",
@@ -36,7 +36,10 @@
 		"vite": "^4.3.2"
 	},
 	"lint-staged": {
-		"*.js": "npm run lint",
-		"*.{js,css,md,html,json}": "npm run format"
+		"src/**/*.{js,ts,jsx,tsx}": [
+			"npm run lint-fix",
+			"npm run lint"
+		],
+		"src/**/*.{js,ts,jsx,tsx,css,md,html,json}": "npm run format"
 	}
 }
