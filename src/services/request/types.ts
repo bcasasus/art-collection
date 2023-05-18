@@ -8,11 +8,11 @@ export interface Params {
 
 export interface CallApiStructure {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	(endpoint: string, params?: Params): Promise<any>;
+	(apiUrl: string, endpoint: string, params?: Params): Promise<any>;
 }
 
 export interface CallApiFactory {
-	(callApi: CallApiStructure): (
+	(apiUrl: string, callApi: CallApiStructure): (
 		endpoint: string
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	) => (params?: Params) => Promise<any>;
