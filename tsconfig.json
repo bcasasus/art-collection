@@ -29,7 +29,7 @@
 			"@rmt/pages": ["./src/ui/components/pages/index.ts"],
 			"@rmt/layout": ["./src/ui/components/layout/index.ts"],
 			"@rmt/atoms": ["./src/ui/components/atoms/index.ts"],
-			"@rmt/molecule": ["./src/ui/components/molecules/index.ts"],
+			"@rmt/molecules": ["./src/ui/components/molecules/index.ts"],
 			"@rmt/organisms": ["./src/ui/components/organisms/index.ts"]
 		}
 	},
