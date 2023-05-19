@@ -12,4 +12,5 @@ export interface ResultsApiResponse {
 	gender: 'Male' | 'Female';
 	origin: Location;
 	location: Location;
+	image: string;
 }
