@@ -8,23 +8,15 @@ export const mapCharacters = ({
 	results,
 }: CharactersApiResponse): Character[] =>
 	results.map(
-		({
-			id,
-			name,
-			status,
-			species,
-			type,
-			gender,
-			origin,
-			location,
-		}: ResultsApiResponse): Character => ({
-			id,
-			name,
-			status,
-			species,
-			type,
-			gender,
-			originLocation: origin,
-			currentLocation: location,
+		(character: ResultsApiResponse): Character => ({
+			id: character.id,
+			name: character.name,
+			status: character.status,
+			species: character.species,
+			type: character.type,
+			gender: character.gender,
+			originLocation: character.origin,
+			currentLocation: character.location,
+			image: character.image,
 		})
 	);

@@ -7,6 +7,7 @@ export interface Character {
 	gender: 'Male' | 'Female';
 	originLocation: Location;
 	currentLocation: Location;
+	image: string;
 }
 
 export interface Location {
