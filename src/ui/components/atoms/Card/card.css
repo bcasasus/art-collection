@@ -1,0 +1,18 @@
+.rmt-card {
+	max-width: 200px;
+	padding: 5px;
+	background-color: var(--negro);
+	color: rgb(245, 245, 245);
+	border-radius: 3px;
+}
+.rmt-card:hover {
+	background-color: #5383e8;
+}
+
+.rmt-card__header {
+	padding: 5px 0 5px 0;
+}
+
+.rmt-card__img {
+	border-radius: 1px;
+}
