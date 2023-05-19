@@ -13,7 +13,7 @@ export default defineConfig({
 			},
 			{
 				find: '@rmt/context',
-				replacement: path.resolve(__dirname, 'src/context/index.ts'),
+				replacement: path.resolve(__dirname, 'src/ui/context/index.ts'),
 			},
 			{
 				find: '@rmt/api',
