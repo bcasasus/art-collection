@@ -1,0 +1,11 @@
+.rmt-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--spacing-20);
+}
+
+.rmt-header__logo {
+	width: 40px;
+	height: 40px;
+}

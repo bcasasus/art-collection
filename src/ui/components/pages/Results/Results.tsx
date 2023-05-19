@@ -26,7 +26,7 @@ const Results = () => {
 	return (
 		<ResultsStateContextProvider state={state}>
 			<ResultsDispatchContextProvider dispatch={dispatch}>
-				<div className="results-page"></div>
+				<div className="results-page">Results</div>
 			</ResultsDispatchContextProvider>
 		</ResultsStateContextProvider>
 	);
