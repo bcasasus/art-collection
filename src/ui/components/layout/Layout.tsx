@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
+import { Header } from '@rmt/organisms';
 
 const Layout = (): JSX.Element => {
 	return (
 		<>
-			<div>Header</div>
+			<Header />
 			<Outlet />
 		</>
 	);
