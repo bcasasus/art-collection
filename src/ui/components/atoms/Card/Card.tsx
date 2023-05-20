@@ -16,9 +16,16 @@ Card.Header = ({ children }: HeaderProps) => (
 	<header className="rmt-card__header">{children}</header>
 );
 
-Card.Title = ({ children }: TitleProps) => (
-	<h2 className="rmt-card__title">{children}</h2>
-);
+Card.Title = ({ children }: TitleProps) => {
+	const titleClassName =
+		typeof children === 'string'
+			? children.length >= 20
+				? 'rmt-card__title rmt-card__title--small'
+				: 'rmt-card__title'
+			: 'rmt-card__title';
+
+	return <h2 className={titleClassName}>{children}</h2>;
+};
 
 Card.Body = ({ children }: BodyProps) => (
 	<div className="rmt-card__body">{children}</div>
