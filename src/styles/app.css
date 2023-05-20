@@ -11,11 +11,19 @@
 */
 /* Aquí definimos las Custom properties */
 :root {
-	--negro: #393939;
+	--white: rgb(245, 245, 245);
+	--black: #393939;
+	--blue: #5383e8;
 	/* Tipografía */
 	--tipo-principal: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
 		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	--tipo-secundaria: Verdana;
+
+	/* Font-size */
+	--font-size-small: 1.25rem;
+	--font-size-medium: 1.5rem;
+	--font-size-big: 1.75rem;
+
 	/* Spacing */
 	--spacing-4: 0.24rem;
 	--spacing-8: 0.5rem;
@@ -30,7 +38,7 @@
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--negro: #ececec;
+		--black: #ececec;
 	}
 }
 /* Opcional */
@@ -129,11 +137,11 @@ q:after {
 
 /* Configuramos el texto que seleccionamos */
 ::-moz-selection {
-	background-color: var(--negro);
+	background-color: var(--black);
 	color: var(--blanco);
 }
 ::selection {
-	background-color: var(--negro);
+	background-color: var(--black);
 	color: var(--blanco);
 }
 
@@ -183,7 +191,7 @@ body {
 	min-height: 100vh;
 	font-size: 100%;
 	font-family: var(--tipo-principal);
-	color: var(--negro);
+	color: var(--black);
 	/* opcional */
 	line-height: 1.4em;
 	/* opcional */
