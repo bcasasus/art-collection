@@ -8,6 +8,10 @@
 	color: var(--white);
 	background-color: var(--black);
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+	animation-duration: 0.75s;
+	animation-name: animate-glow;
+	animation-timing-function: ease;
 }
 
 .rmt-card:hover {
@@ -32,5 +36,18 @@
 }
 
 .rmt-card__img {
+	width: 190px;
+	height: 190px;
 	border-radius: 1px;
+}
+
+@keyframes animate-glow {
+	0% {
+		opacity: 0;
+		transform: scale(1, 1);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
 }
