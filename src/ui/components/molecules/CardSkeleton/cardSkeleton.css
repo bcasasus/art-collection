@@ -1,0 +1,45 @@
+.rmt-card-skeleton {
+	width: 200px;
+	height: 255px;
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	border-radius: 3px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.rmt-card-skeleton__media {
+	width: 190px;
+	height: 190px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #eee;
+}
+
+.rmt-card-skeleton__img {
+	width: 50px;
+}
+
+.rmt-card-skeleton__header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+}
+
+.rmt-card-skeleton__title {
+	width: 139px;
+	height: 22px;
+	background: #eee;
+	background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+	border-radius: 5px;
+	background-size: 200% 100%;
+	animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+	to {
+		background-position-x: -200%;
+	}
+}
