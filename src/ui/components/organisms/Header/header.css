@@ -1,11 +1,18 @@
 .rmt-header {
+	width: 100%;
 	min-height: 64px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	padding: 0 var(--spacing-12);
+	justify-content: center;
 	background-color: var(--black);
 	color: var(--white);
+}
+
+.rmt-header__logo-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-12);
 }
 
 .rmt-header__logo {
@@ -13,9 +20,21 @@
 	height: 40px;
 }
 
-.rmt-header__section {
+.rmt-header__container {
+	width: 100%;
+	max-width: 1380px;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: var(--spacing-20);
+	justify-content: space-between;
+	flex: 1;
+	padding: 0 var(--spacing-12);
+}
+
+.rmt-header__title {
+	visibility: hidden;
+}
+
+@media (min-width: 576px) {
+	.rmt-header__title {
+		visibility: visible;
+	}
 }

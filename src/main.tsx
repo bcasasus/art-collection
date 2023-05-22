@@ -6,7 +6,9 @@ import './styles/app.css';
 
 const router = createBrowserRouter(routes);
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(
+	document.getElementById('rick-and-morty-tracker') as HTMLElement
+).render(
 	<React.StrictMode>
 		<RouterProvider router={router} />
 	</React.StrictMode>

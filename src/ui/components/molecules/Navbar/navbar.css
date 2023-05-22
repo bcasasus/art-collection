@@ -1,10 +1,10 @@
 .rmt-navbar {
 	display: flex;
 	gap: 20px;
+	align-items: center;
 }
 
 .rmt-navbar__link {
-	padding: 15px;
 	color: var(--white);
 	border-radius: 5px;
 	font-weight: 700;
