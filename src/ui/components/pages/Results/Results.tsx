@@ -11,6 +11,7 @@ import { api } from '@rmt/api';
 import { Card } from '@rmt/atoms';
 import { CardSkeleton } from '@rmt/molecules';
 import './results.css';
+import Filters from '../../molecules/Filters/Filters';
 
 const Results = () => {
 	const [state, dispatch] = useReducer(
@@ -30,7 +31,9 @@ const Results = () => {
 		<ResultsStateContextProvider state={state}>
 			<div className="rmt-results-page">
 				<ResultsDispatchContextProvider dispatch={dispatch}>
-					<aside className="rmt-results-page__aside">Filters</aside>
+					<aside className="rmt-results-page__aside">
+						<Filters />
+					</aside>
 				</ResultsDispatchContextProvider>
 				<main className="rmt-results-page__main">
 					{!state.results.length &&

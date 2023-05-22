@@ -1,16 +1,16 @@
 .rmt-results-page {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
+	padding: var(--spacing-20);
+	gap: var(--spacing-20);
 }
 
 .rmt-results-page__main {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	padding: 20px;
+	justify-content: flex-start;
 	max-width: 1024px;
 	flex-wrap: wrap;
 	flex-direction: row;
-	gap: 20px;
+	gap: var(--spacing-20);
 }
