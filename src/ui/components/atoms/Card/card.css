@@ -1,6 +1,4 @@
 .rmt-card {
-	max-width: 200px;
-	height: 255px;
 	display: flex;
 	flex-direction: column;
 	padding: 5px;
@@ -19,7 +17,7 @@
 }
 
 .rmt-card__header {
-	height: 100%;
+	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -29,16 +27,47 @@
 .rmt-card__title {
 	font-size: var(--font-size-medium);
 	text-align: center;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
 }
 
 .rmt-card__title--small {
 	font-size: var(--font-size-small);
 }
 
-.rmt-card__img {
-	width: 190px;
-	height: 190px;
+.rmt-card__media {
 	border-radius: 1px;
+	padding-top: 100%;
+	position: relative;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rmt-card__img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+	border-radius: 1px;
+}
+.rmt-card__img::after {
+	z-index: 2;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.5) 100%
+	);
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 50%;
+	content: '';
+	border-radius: 3px;
 }
 
 @keyframes animate-glow {
