@@ -1,11 +1,21 @@
 .rmt-header {
+	min-height: 64px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: var(--spacing-20);
+	padding: 0 var(--spacing-12);
+	background-color: var(--black);
+	color: var(--white);
 }
 
 .rmt-header__logo {
 	width: 40px;
 	height: 40px;
+}
+
+.rmt-header__section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-20);
 }
