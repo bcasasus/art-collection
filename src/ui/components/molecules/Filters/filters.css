@@ -1,0 +1,33 @@
+.rmt-filters {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 15px;
+	min-width: 300px;
+	background-color: var(--white);
+	border-radius: 3px;
+	padding: 20px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.rmt-filters__search-input {
+	width: 100%;
+	background-color: white;
+	border-radius: 3px;
+	padding: 15px;
+	font-weight: 600;
+}
+
+.rmt-filters__select-input {
+	width: 100%;
+	background-color: white;
+	border-radius: 3px;
+	padding: 15px;
+	appearance: auto;
+	font-weight: 600;
+}
+
+.rmt-filters__label {
+	text-transform: uppercase;
+	font-size: 0.9rem;
+}
