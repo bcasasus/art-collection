@@ -12,7 +12,7 @@
 }
 
 .rmt-results-page__aside {
-	padding: var(--spacing-12);
+	padding: var(--gutter);
 }
 
 .rmt-results-page__list {
@@ -21,7 +21,7 @@
 }
 
 .rmt-results-page__list-item {
-	padding: var(--spacing-12);
+	padding: var(--gutter);
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 50%;
 	flex: 0 0 50%;
