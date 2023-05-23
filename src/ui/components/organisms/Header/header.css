@@ -4,15 +4,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--black);
-	color: var(--white);
+	background-color: var(--secondary-color);
+	color: var(--primary-color);
 }
 
 .rmt-header__logo-section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: var(--spacing-12);
+	gap: var(--gutter);
 }
 
 .rmt-header__logo {
@@ -26,7 +26,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex: 1;
-	padding: 0 var(--spacing-12);
+	padding: 0 var(--gutter);
 }
 
 .rmt-header__title {
