@@ -3,7 +3,7 @@ import { api } from '@rmt/api';
 import { mapCharacters } from '@rmt/services';
 import { Character } from '@rmt/model';
 
-const useCharacters = () => {
+export const useCharacters = () => {
 	const [characters, setCharacters] = useState<Character[]>([]);
 	const [loading, setLoading] = useState(true);
 
@@ -17,4 +17,3 @@ const useCharacters = () => {
 	}, []);
 	return { characters, loading };
 };
-export default useCharacters;
