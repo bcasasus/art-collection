@@ -1,0 +1,16 @@
+.rmt-picture {
+	border-radius: 1px;
+	padding-top: 100%;
+	position: relative;
+}
+
+.rmt-picture__img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+	border-radius: 1px;
+}
