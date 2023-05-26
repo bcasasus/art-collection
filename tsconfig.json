@@ -21,7 +21,7 @@
 		"types": ["node"],
 		"paths": {
 			"@rmt/assets": ["./src/assets"],
-			"@rmt/context": ["./src/ui/context/index.ts"],
+			"@rmt/hooks": ["./src/ui/components/hooks/index.ts"],
 			"@rmt/api": ["./src/logic/api/index.ts"],
 			"@rmt/model": ["./src/logic/model/index.ts"],
 			"@rmt/routes": ["./src/routes/index.ts"],

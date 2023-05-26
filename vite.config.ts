@@ -12,8 +12,11 @@ export default defineConfig({
 				replacement: path.resolve(__dirname, 'src/assets'),
 			},
 			{
-				find: '@rmt/context',
-				replacement: path.resolve(__dirname, 'src/ui/context/index.ts'),
+				find: '@rmt/hooks',
+				replacement: path.resolve(
+					__dirname,
+					'/src/ui/components/hooks/index.ts'
+				),
 			},
 			{
 				find: '@rmt/api',
