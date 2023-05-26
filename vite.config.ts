@@ -15,7 +15,7 @@ export default defineConfig({
 				find: '@rmt/hooks',
 				replacement: path.resolve(
 					__dirname,
-					'/src/ui/components/hooks/index.ts'
+					'src/ui/components/hooks/index.ts'
 				),
 			},
 			{
