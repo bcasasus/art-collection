@@ -1,6 +1,6 @@
 import './cardSkeleton.css';
 
-const CardSkeleton = () => (
+export const CardSkeleton = () => (
 	<div className="rmt-card-skeleton">
 		<figure className="rmt-card-skeleton__media"></figure>
 		<div className="rmt-card-skeleton__header">
@@ -8,5 +8,3 @@ const CardSkeleton = () => (
 		</div>
 	</div>
 );
-
-export default CardSkeleton;

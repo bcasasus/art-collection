@@ -1,6 +1,6 @@
 import './filters.css';
 
-const Filters = () => {
+export const Filters = () => {
 	return (
 		<div className="rmt-filters">
 			<input
@@ -68,5 +68,3 @@ const Filters = () => {
 		</div>
 	);
 };
-
-export default Filters;

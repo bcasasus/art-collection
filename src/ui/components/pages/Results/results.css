@@ -11,6 +11,10 @@
 	max-width: 1380px;
 }
 
+.rmt-results-page__main {
+	width: 100%;
+}
+
 .rmt-results-page__aside {
 	padding: var(--gutter);
 }

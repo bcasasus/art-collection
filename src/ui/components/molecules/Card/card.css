@@ -37,23 +37,6 @@
 	font-size: var(--font-size-small);
 }
 
-.rmt-card__media {
-	border-radius: 1px;
-	padding-top: 100%;
-	position: relative;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.rmt-card__img {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	z-index: 1;
-	border-radius: 1px;
-}
 .rmt-card__img::after {
 	z-index: 2;
 	background: linear-gradient(

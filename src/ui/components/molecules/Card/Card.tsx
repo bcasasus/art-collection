@@ -1,22 +1,22 @@
+import { Image } from '@rmt/atoms';
 import {
-	BodyProps,
+	CardBodyProps,
 	CardStructure,
-	FooterProps,
-	HeaderProps,
-	ImageProps,
-	TitleProps,
+	CardFooterProps,
+	CardHeaderProps,
+	CardTitleProps,
 } from './types';
 import './card.css';
 
-const Card: CardStructure = ({ children, className = '' }) => (
+export const Card: CardStructure = ({ children, className = '' }) => (
 	<article className={`rmt-card ${className}`}>{children}</article>
 );
 
-Card.Header = ({ children, className = '' }: HeaderProps) => (
+Card.Header = ({ children, className = '' }: CardHeaderProps) => (
 	<header className={`rmt-card__header ${className}`}>{children}</header>
 );
 
-Card.Title = ({ children, className = '' }: TitleProps) => {
+Card.Title = ({ children, className = '' }: CardTitleProps) => {
 	const titleClassName =
 		typeof children === 'string'
 			? children.length >= 20
@@ -27,16 +27,12 @@ Card.Title = ({ children, className = '' }: TitleProps) => {
 	return <h2 className={`${titleClassName} ${className}`}>{children}</h2>;
 };
 
-Card.Body = ({ children, className = '' }: BodyProps) => (
+Card.Body = ({ children, className = '' }: CardBodyProps) => (
 	<div className={`rmt-card__body ${className}`}>{children}</div>
 );
 
-Card.Image = ({ src, alt, className = '' }: ImageProps) => (
-	<img className={`rmt-card__img ${className}`} src={src} alt={alt} />
-);
+Card.Image = Image;
 
-Card.Footer = ({ children, className = '' }: FooterProps) => (
+Card.Footer = ({ children, className = '' }: CardFooterProps) => (
 	<footer className={`rmt-card__footer ${className}`}>{children}</footer>
 );
-
-export default Card;

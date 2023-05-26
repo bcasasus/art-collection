@@ -1,27 +1,22 @@
+import { ImageProps } from '@rmt/atoms';
 import { FC, ReactNode } from 'react';
 
-export interface HeaderProps {
+export interface CardHeaderProps {
 	children: ReactNode;
 	className?: string;
 }
 
-export interface TitleProps {
+export interface CardTitleProps {
 	children: ReactNode;
 	className?: string;
 }
 
-export interface BodyProps {
+export interface CardBodyProps {
 	children: ReactNode;
 	className?: string;
 }
 
-export interface ImageProps {
-	src: string;
-	alt: string;
-	className?: string;
-}
-
-export interface FooterProps {
+export interface CardFooterProps {
 	children: ReactNode;
 	className?: string;
 }
@@ -32,9 +27,9 @@ interface CardProps {
 }
 
 export interface CardStructure extends FC<CardProps> {
-	Header: FC<HeaderProps>;
-	Title: FC<TitleProps>;
-	Body: FC<BodyProps>;
+	Header: FC<CardHeaderProps>;
+	Title: FC<CardTitleProps>;
+	Body: FC<CardBodyProps>;
 	Image: FC<ImageProps>;
-	Footer: FC<FooterProps>;
+	Footer: FC<CardFooterProps>;
 }

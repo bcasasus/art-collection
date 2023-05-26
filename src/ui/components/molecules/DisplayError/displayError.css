@@ -1,0 +1,28 @@
+.rmt-display-error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	padding: var(--gutter);
+}
+
+.rmt-display-error__title {
+	text-align: center;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+.rmt-display-error__image-container--small {
+	width: 100%;
+	max-width: 150px;
+}
+
+.rmt-display-error__image-container--medium {
+	width: 100%;
+	max-width: 200px;
+}
+
+.rmt-display-error__image-container--large {
+	width: 100%;
+	max-width: 250px;
+}
