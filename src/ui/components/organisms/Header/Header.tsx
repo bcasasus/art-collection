@@ -4,7 +4,7 @@ import { Navbar } from '@rmt/molecules';
 import rickAndMortyLogo from '@rmt/assets/logo.svg';
 import './header.css';
 
-const Header: FC<HeaderProps> = ({ children, className = '' }) => (
+export const Header: FC<HeaderProps> = ({ children, className = '' }) => (
 	<header className={`rmt-header ${className}`}>
 		<div className="rmt-header__container">
 			<div className="rmt-header__logo-section">
@@ -23,5 +23,3 @@ const Header: FC<HeaderProps> = ({ children, className = '' }) => (
 		{children}
 	</header>
 );
-
-export default Header;

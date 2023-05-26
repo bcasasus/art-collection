@@ -4,11 +4,11 @@ export interface NavbarProps {
 	children: ReactNode;
 }
 
-export interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
+export interface NavbarLinkProps extends HTMLAttributes<HTMLAnchorElement> {
 	to: string;
 	children: ReactNode;
 }
 
 export interface NavbarStructure extends FC<NavbarProps> {
-	Link: FC<LinkProps>;
+	Link: FC<NavbarLinkProps>;
 }
