@@ -1,70 +1,68 @@
+import { FormEvent } from 'react';
+import { FilterProps } from './types';
 import './filters.css';
 
-export const Filters = () => {
+export const Filters = ({ fetchCharacters }: FilterProps): JSX.Element => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const form = new FormData(e.target as HTMLFormElement);
+		const parsedData = Object.fromEntries(form.entries());
+
+		const filters = Object.keys(parsedData).reduce((filters, key) => {
+			if (parsedData[key] !== 'All' && parsedData[key] !== '') {
+				return {
+					...filters,
+					[key]: parsedData[key],
+				};
+			}
+
+			return filters;
+		}, {});
+
+		await fetchCharacters(filters);
+	};
 	return (
-		<div className="rmt-filters">
+		<form onSubmit={handleSubmit} className="rmt-filters-form">
 			<input
-				className="rmt-filters__search-input"
+				className="rmt-filters-form__search-input"
 				type="search"
 				name="name"
 				placeholder="Type a character name..."
 			/>
-			<label className="rmt-filters__label" htmlFor="select-status">
+			<label className="rmt-filters-form__label" htmlFor="select-status">
 				Status
 			</label>
 			<select
-				className="rmt-filters__select-input"
+				className="rmt-filters-form__select-input"
 				name="status"
 				id="select-status"
 			>
-				<option value="value1">Value 1</option>
-				<option value="value2" selected>
-					Value 2
-				</option>
-				<option value="value3">Value 3</option>
+				<option value="All">All</option>
+				<option value="Alive">Alive</option>
+				<option value="Dead">Dead</option>
+				<option value="unknown">unknown</option>
 			</select>
-			<label className="rmt-filters__label" htmlFor="select-species">
-				Species
-			</label>
-			<select
-				className="rmt-filters__select-input"
-				name="species"
-				id="select-species"
-			>
-				<option value="value1">Value 1</option>
-				<option value="value2" selected>
-					Value 2
-				</option>
-				<option value="value3">Value 3</option>
-			</select>
-			<label className="rmt-filters__label" htmlFor="select-type">
-				Type
-			</label>
-			<select
-				className="rmt-filters__select-input"
-				name="type"
-				id="select-type"
-			>
-				<option value="value1">Value 1</option>
-				<option value="value2" selected>
-					Value 2
-				</option>
-				<option value="value3">Value 3</option>
-			</select>
-			<label className="rmt-filters__label" htmlFor="select-gender">
+			<label className="rmt-filters-form__label" htmlFor="select-gender">
 				Gender
 			</label>
 			<select
-				className="rmt-filters__select-input"
+				className="rmt-filters-form__select-input"
 				name="gender"
 				id="select-gender"
 			>
-				<option value="value1">Value 1</option>
-				<option value="value2" selected>
-					Value 2
-				</option>
-				<option value="value3">Value 3</option>
+				<option value="All">All</option>
+				<option value="Female">Female</option>
+				<option value="Male">Male</option>
+				<option value="Genderless">Genderless</option>
+				<option value="unknown">unknown</option>
 			</select>
-		</div>
+			<button className="rmt-filters-form__submit-button" type="submit">
+				FILTER
+			</button>
+			<button className="rmt-filters-form__reset-button" type="reset">
+				RESET
+			</button>
+		</form>
 	);
 };

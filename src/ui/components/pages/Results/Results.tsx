@@ -1,29 +1,20 @@
 import { useCharacters } from '@rmt/hooks';
 import { CardSkeleton, Filters, Card, DisplayError } from '@rmt/molecules';
-import spaceShip from '@rmt/assets/spaceShip.svg';
 import './results.css';
 
 const Results = () => {
-	const { characters, loading } = useCharacters();
+	const { characters, loading, fetchCharacters } = useCharacters();
 
 	return (
 		<div className="rmt-results-page">
 			<div className="rmt-results-page__container">
 				<aside className="rmt-results-page__aside">
-					<Filters />
+					<Filters fetchCharacters={fetchCharacters} />
 				</aside>
 				<main className="rmt-results-page__main">
 					{!loading && !characters.length && (
 						<DisplayError>
-							<DisplayError.ImageContainer>
-								<DisplayError.Image
-									src={spaceShip}
-									alt={`A alien space ship.`}
-								/>
-							</DisplayError.ImageContainer>
-							<DisplayError.Title>
-								No results found. Maybe aliens took them all!
-							</DisplayError.Title>
+							<DisplayError.Title>No results found.</DisplayError.Title>
 						</DisplayError>
 					)}
 					<ul className="rmt-results-page__list">

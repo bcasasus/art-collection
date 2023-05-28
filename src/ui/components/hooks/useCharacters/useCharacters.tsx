@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react';
 import { api } from '@rmt/api';
-import { mapCharacters } from '@rmt/services';
+import { CharacterParams, mapCharacters } from '@rmt/services';
 import { Character } from '@rmt/model';
 
 export const useCharacters = () => {
 	const [characters, setCharacters] = useState<Character[]>([]);
 	const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		(async () => {
-			const response = await api.fetchCharacters();
+	const fetchCharacters = async (params: CharacterParams) => {
+		try {
+			setLoading(true);
+			const response = await api.fetchCharacters(params);
 			const characters = mapCharacters(response);
 			setCharacters(characters);
 			setLoading(false);
+		} catch {
+			setCharacters([]);
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		(async () => {
+			await fetchCharacters({});
 		})();
 	}, []);
-	return { characters, loading };
+	return { characters, loading, fetchCharacters };
 };
