@@ -1,7 +1,7 @@
 .rmt-display-error {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 	flex-direction: column;
 	height: 100%;
 	padding: var(--gutter);
