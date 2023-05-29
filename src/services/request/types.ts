@@ -5,14 +5,14 @@ export interface Endpoints {
 export interface CharacterParams {
 	name?: string;
 	status?: string;
-	species?: string;
-	type?: string;
 	gender?: string;
 }
 
 export type Params = {
-	[key in keyof CharacterParams]?: string | number;
+	[key in keyof CharacterParams as string]?: string | number;
 };
+
+export type ParamsKeys = keyof Params;
 
 export interface CallApiStructure {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
