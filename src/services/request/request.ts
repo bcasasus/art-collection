@@ -1,4 +1,5 @@
 import {
+	ParamsKeys,
 	type CallApiFactory,
 	type CallApiStructure,
 	type Params,
@@ -6,7 +7,7 @@ import {
 
 const objectParamsToQueryParams =
 	(params: Params) =>
-	(querParams: string, paramKey: string, index: number): string => {
+	(querParams: string, paramKey: ParamsKeys, index: number): string => {
 		if (index === 0) {
 			querParams = querParams.concat('?');
 		} else {
@@ -25,7 +26,7 @@ const buildQueryParams = (params: Params): string => {
 		throw new Error('Params must be an object.');
 	}
 
-	const paramsKeys = Object.keys(params);
+	const paramsKeys: string[] = Object.keys(params);
 	const querParams = paramsKeys.reduce(
 		objectParamsToQueryParams(params),
 		QUERY_PARAMS_INITIAL_STATE
