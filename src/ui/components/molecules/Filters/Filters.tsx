@@ -1,5 +1,6 @@
 import { FormEvent } from 'react';
 import { FilterProps } from './types';
+import { Button } from '@rmt/atoms';
 import './filters.css';
 
 export const Filters = ({ fetchCharacters }: FilterProps): JSX.Element => {
@@ -57,12 +58,12 @@ export const Filters = ({ fetchCharacters }: FilterProps): JSX.Element => {
 				<option value="Genderless">Genderless</option>
 				<option value="unknown">unknown</option>
 			</select>
-			<button className="rmt-filters-form__submit-button" type="submit">
+			<Button className="rmt-filters-form__submit-button" type="submit">
 				FILTER
-			</button>
-			<button className="rmt-filters-form__reset-button" type="reset">
+			</Button>
+			<Button className="rmt-filters-form__reset-button" type="reset">
 				RESET
-			</button>
+			</Button>
 		</form>
 	);
 };

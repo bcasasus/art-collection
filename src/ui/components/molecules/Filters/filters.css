@@ -61,12 +61,9 @@
 }
 
 .rmt-filters-form__reset-button {
-	padding: 15px;
 	background-color: var(--grey);
 	color: var(--black);
-	border-radius: 3px;
-	font-weight: 600;
-	cursor: pointer;
+	font-weight: 500;
 }
 
 .rmt-filters-form__reset-button:hover {
@@ -74,12 +71,7 @@
 }
 
 .rmt-filters-form__submit-button {
-	padding: 15px;
-	background-color: var(--black);
-	color: var(--pure-white);
-	border-radius: 3px;
-	font-weight: 600;
-	cursor: pointer;
+	font-weight: 500;
 }
 
 .rmt-filters-form__submit-button:hover {
