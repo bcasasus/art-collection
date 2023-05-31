@@ -5,6 +5,8 @@ import { Character } from '@rmt/model';
 
 export const useCharacters = () => {
 	const [characters, setCharacters] = useState<Character[]>([]);
+	const [pagination, setPagination] = useState({});
+	const [totalCharactersCount, setTotalCharactersCount] = useState(0);
 	const [loading, setLoading] = useState(true);
 
 	const fetchCharacters = async (params: CharacterParams) => {
@@ -12,7 +14,10 @@ export const useCharacters = () => {
 			setLoading(true);
 			const response = await api.fetchCharacters(params);
 			const characters = mapCharacters(response);
-			setCharacters(characters);
+
+			setCharacters(characters.results);
+			setPagination(characters.pagination);
+			setTotalCharactersCount(characters.totalCharactersCount);
 			setLoading(false);
 		} catch {
 			setCharacters([]);
@@ -25,5 +30,11 @@ export const useCharacters = () => {
 			await fetchCharacters({});
 		})();
 	}, []);
-	return { characters, loading, fetchCharacters };
+	return {
+		characters,
+		pagination,
+		totalCharactersCount,
+		loading,
+		fetchCharacters,
+	};
 };

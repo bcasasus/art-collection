@@ -1,12 +1,17 @@
 import { Character } from '@rmt/model';
 import {
+	InfoApiResponse,
 	type CharactersApiResponse,
 	type ResultsApiResponse,
 } from '@rmt/services';
 
-export const mapCharacters = ({
-	results,
-}: CharactersApiResponse): Character[] =>
+export const mapCharacters = (apiResponse: CharactersApiResponse) => ({
+	results: mapResults(apiResponse.results),
+	pagination: mapPagination(apiResponse.info),
+	totalCharactersCount: mapTotalCharactersCount(apiResponse.info),
+});
+
+export const mapResults = (results: ResultsApiResponse[]): Character[] =>
 	results.map(
 		(character: ResultsApiResponse): Character => ({
 			id: character.id,
@@ -20,3 +25,11 @@ export const mapCharacters = ({
 			image: character.image,
 		})
 	);
+
+export const mapPagination = (info: InfoApiResponse) => ({
+	pages: info.pages,
+	nextPageEndpoint: info.next,
+	previousPageEndpoin: info.prev,
+});
+
+export const mapTotalCharactersCount = (info: InfoApiResponse) => info.count;
