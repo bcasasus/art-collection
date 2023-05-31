@@ -1,0 +1,7 @@
+.rmt-button {
+	padding: 15px;
+	background-color: var(--black);
+	color: var(--pure-white);
+	border-radius: 3px;
+	cursor: pointer;
+}

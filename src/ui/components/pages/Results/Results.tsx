@@ -1,5 +1,5 @@
 import { useCharacters } from '@rmt/hooks';
-import { CardSkeleton, Filters, Card } from '@rmt/molecules';
+import { CardSkeleton, Filters, Card, Pagination } from '@rmt/molecules';
 import './results.css';
 
 const Results = () => {
@@ -48,6 +48,7 @@ const Results = () => {
 								</li>
 							))}
 					</ul>
+					<Pagination />
 				</main>
 			</div>
 		</div>
