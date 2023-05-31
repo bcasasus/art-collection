@@ -20,9 +20,9 @@
 	--black: rgb(57, 57, 57);
 	--gold: rgb(255, 152, 0);
 	/* Tipografía */
-	--tipo-principal: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+	--primary-font: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
 		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-	--tipo-secundaria: Verdana;
+	--secondary-font: Verdana;
 
 	/* Font-size */
 	--font-size-small: 1.25rem;
@@ -38,8 +38,6 @@
 	--spacing-24: 1.5rem;
 	--spacing-28: 1.75rem;
 	--spacing-32: 2rem;
-
-	--gutter: 0.938rem;
 }
 
 /* Las adaptamos al modo oscuro */
@@ -198,7 +196,7 @@ svg {
 body {
 	min-height: 100vh;
 	font-size: 100%;
-	font-family: var(--tipo-principal);
+	font-family: var(--primary-font), var(--secondary-font);
 	color: var(--black);
 	/* opcional */
 	line-height: 1.4em;
