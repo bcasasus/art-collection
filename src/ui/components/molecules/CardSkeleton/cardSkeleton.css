@@ -38,3 +38,7 @@
 		background-position-x: -200%;
 	}
 }
+
+.active > svg {
+	fill: red;
+}

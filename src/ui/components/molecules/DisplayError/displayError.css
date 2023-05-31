@@ -4,7 +4,7 @@
 	align-items: flex-start;
 	flex-direction: column;
 	height: 100%;
-	padding: var(--gutter);
+	padding: var(--spacing-16);
 }
 
 .rmt-display-error__title {

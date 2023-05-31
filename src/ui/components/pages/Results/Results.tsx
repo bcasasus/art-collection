@@ -1,9 +1,10 @@
 import { useCharacters } from '@rmt/hooks';
-import { CardSkeleton, Filters, Card, DisplayError } from '@rmt/molecules';
+import { CardSkeleton, Filters, Card } from '@rmt/molecules';
 import './results.css';
 
 const Results = () => {
-	const { characters, loading, fetchCharacters } = useCharacters();
+	const { characters, totalCharactersCount, loading, fetchCharacters } =
+		useCharacters();
 
 	return (
 		<div className="rmt-results-page">
@@ -12,11 +13,16 @@ const Results = () => {
 					<Filters fetchCharacters={fetchCharacters} />
 				</aside>
 				<main className="rmt-results-page__main">
-					{!loading && !characters.length && (
-						<DisplayError>
-							<DisplayError.Title>No results found.</DisplayError.Title>
-						</DisplayError>
-					)}
+					<div className="rmt-results-page__results-info">
+						{!loading && !characters.length ? (
+							<span className="rmt-results-page__text">No results found.</span>
+						) : (
+							<span className="rmt-results-page__text">
+								Found a total of {totalCharactersCount} characters.
+							</span>
+						)}
+					</div>
+
 					<ul className="rmt-results-page__list">
 						{loading &&
 							Array.from({ length: 20 }).map((_element, index) => (
