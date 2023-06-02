@@ -15,12 +15,13 @@
 	justify-content: space-between;
 	padding: var(--spacing-16);
 }
+
 .rmt-pagination__button {
 	min-width: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--pure-white);
+	background-color: var(--black);
 	color: var(--black);
 	border-radius: 3px;
 	font-weight: 600;
