@@ -3,8 +3,8 @@ import { FilterProps } from './types';
 import { Button } from '@rmt/atoms';
 import './filters.css';
 
-export const Filters = ({ fetchCharacters }: FilterProps): JSX.Element => {
-	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
+	const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		const form = new FormData(e.target as HTMLFormElement);
@@ -21,10 +21,11 @@ export const Filters = ({ fetchCharacters }: FilterProps): JSX.Element => {
 			return filters;
 		}, {});
 
-		await fetchCharacters(filters);
+		onSubmit(filters);
 	};
+
 	return (
-		<form onSubmit={handleSubmit} className="rmt-filters-form">
+		<form onSubmit={handleOnSubmit} className="rmt-filters-form">
 			<input
 				className="rmt-filters-form__search-input"
 				type="search"
