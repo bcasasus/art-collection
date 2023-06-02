@@ -1,39 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { api } from '@rmt/api';
 import { CharacterParams, mapCharacters } from '@rmt/services';
-import { Character } from '@rmt/model';
+import { Character, CharactersFetchInformation } from '@rmt/model';
+
+const CHARACTER_RESULTS_INFORMATION_INITIAL_STATE = {
+	totalPages: 0,
+	totalCharactersCount: 0,
+};
 
 export const useCharacters = () => {
 	const [characters, setCharacters] = useState<Character[]>([]);
-	const [pagination, setPagination] = useState({});
-	const [totalCharactersCount, setTotalCharactersCount] = useState(0);
-	const [loading, setLoading] = useState(true);
+	const [charactersFetchInformation, setCharactersFetchInformation] =
+		useState<CharactersFetchInformation>(
+			CHARACTER_RESULTS_INFORMATION_INITIAL_STATE
+		);
+	const [loading, setLoading] = useState<boolean>(true);
 
-	const fetchCharacters = async (params: CharacterParams) => {
+	const fetchCharacters = useCallback(async (params: CharacterParams) => {
 		try {
 			setLoading(true);
 			const response = await api.fetchCharacters(params);
 			const characters = mapCharacters(response);
 
 			setCharacters(characters.results);
-			setPagination(characters.pagination);
-			setTotalCharactersCount(characters.totalCharactersCount);
+			setCharactersFetchInformation(characters.resultsInfo);
 			setLoading(false);
 		} catch {
 			setCharacters([]);
 			setLoading(false);
 		}
-	};
+	}, []);
 
 	useEffect(() => {
 		(async () => {
 			await fetchCharacters({});
 		})();
-	}, []);
+	}, [fetchCharacters]);
+
 	return {
 		characters,
-		pagination,
-		totalCharactersCount,
+		charactersFetchInformation,
 		loading,
 		fetchCharacters,
 	};

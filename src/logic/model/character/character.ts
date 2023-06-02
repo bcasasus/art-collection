@@ -14,3 +14,8 @@ export interface Location {
 	name: string;
 	url: string;
 }
+
+export interface CharactersFetchInformation {
+	totalPages: number;
+	totalCharactersCount: number;
+}

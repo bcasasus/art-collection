@@ -1,4 +1,4 @@
-import { Character } from '@rmt/model';
+import { Character, CharactersFetchInformation } from '@rmt/model';
 import {
 	InfoApiResponse,
 	type CharactersApiResponse,
@@ -7,8 +7,7 @@ import {
 
 export const mapCharacters = (apiResponse: CharactersApiResponse) => ({
 	results: mapResults(apiResponse.results),
-	pagination: mapPagination(apiResponse.info),
-	totalCharactersCount: mapTotalCharactersCount(apiResponse.info),
+	resultsInfo: mapResultsInfo(apiResponse.info),
 });
 
 export const mapResults = (results: ResultsApiResponse[]): Character[] =>
@@ -26,10 +25,9 @@ export const mapResults = (results: ResultsApiResponse[]): Character[] =>
 		})
 	);
 
-export const mapPagination = (info: InfoApiResponse) => ({
-	pages: info.pages,
-	nextPageEndpoint: info.next,
-	previousPageEndpoin: info.prev,
+export const mapResultsInfo = (
+	info: InfoApiResponse
+): CharactersFetchInformation => ({
+	totalPages: info.pages,
+	totalCharactersCount: info.count,
 });
-
-export const mapTotalCharactersCount = (info: InfoApiResponse) => info.count;

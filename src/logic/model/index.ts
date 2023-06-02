@@ -1,1 +1,1 @@
-export { type Character, type Location } from './character/character';
+export * from './character/character';

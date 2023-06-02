@@ -40,6 +40,9 @@
 			"npm run lint-fix",
 			"npm run lint"
 		],
-		"src/**/*.{js,ts,jsx,tsx,css,md,html,json}": "npm run format"
+		"src/**/*.{js,ts,jsx,tsx,css,md,html,json}": [
+			"npm run format",
+			"git add"
+		]
 	}
 }

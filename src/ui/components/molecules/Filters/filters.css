@@ -16,11 +16,6 @@
 	border-radius: 3px;
 	padding: 15px;
 	font-weight: 600;
-	border: 2px solid var(--pure-white);
-}
-
-.rmt-filters-form__search-input:hover {
-	border: 2px solid var(--black);
 }
 
 .rmt-filters-form__search-input:focus {
@@ -35,18 +30,6 @@
 	padding: 15px;
 	appearance: auto;
 	font-weight: 600;
-	border: 2px solid var(--pure-white);
-}
-
-.rmt-filters-form__select-input:hover {
-	width: 100%;
-	background-color: var(--pure-white);
-	color: var(--black);
-	border-radius: 3px;
-	padding: 15px;
-	appearance: auto;
-	font-weight: 600;
-	border: 2px solid var(--black);
 }
 
 .rmt-filters-form__select-input:focus {
@@ -56,7 +39,7 @@
 .rmt-filters-form__label {
 	text-transform: uppercase;
 	font-size: 0.8rem;
-	color: var(--lights-lategrey);
+	color: var(--black);
 	pointer-events: none;
 }
 
