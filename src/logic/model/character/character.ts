@@ -19,3 +19,9 @@ export interface CharactersFetchInformation {
 	totalPages: number;
 	totalCharactersCount: number;
 }
+
+export type CharacterFilters = {
+	name: string;
+	status: string;
+	gender: string;
+};
