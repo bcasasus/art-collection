@@ -14,20 +14,20 @@ export const useCharacters = () => {
 		useState<CharactersFetchInformation>(
 			CHARACTER_RESULTS_INFORMATION_INITIAL_STATE
 		);
-	const [loading, setLoading] = useState<boolean>(true);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 
 	const fetchCharacters = useCallback(async (params: CharacterParams) => {
 		try {
-			setLoading(true);
+			setIsLoading(true);
 			const response = await api.fetchCharacters(params);
 			const characters = mapCharacters(response);
 
 			setCharacters(characters.results);
 			setCharactersFetchInformation(characters.resultsInfo);
-			setLoading(false);
+			setIsLoading(false);
 		} catch {
 			setCharacters([]);
-			setLoading(false);
+			setIsLoading(false);
 		}
 	}, []);
 
@@ -40,7 +40,7 @@ export const useCharacters = () => {
 	return {
 		characters,
 		charactersFetchInformation,
-		loading,
+		isLoading,
 		fetchCharacters,
 	};
 };

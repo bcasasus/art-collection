@@ -5,7 +5,7 @@ import { CharacterParams } from '@rmt/services';
 import './results.css';
 
 const Results = () => {
-	const { characters, charactersFetchInformation, loading, fetchCharacters } =
+	const { characters, charactersFetchInformation, isLoading, fetchCharacters } =
 		useCharacters();
 
 	const resultsMainRef = useRef<HTMLElement>(null);
@@ -38,7 +38,7 @@ const Results = () => {
 				</aside>
 				<main className="rmt-results-page__main" ref={resultsMainRef}>
 					<div className="rmt-results-page__results-info">
-						{!loading && !characters.length ? (
+						{!isLoading && !characters.length ? (
 							<span className="rmt-results-page__text">No results found.</span>
 						) : (
 							<span className="rmt-results-page__text">
@@ -49,13 +49,13 @@ const Results = () => {
 					</div>
 
 					<ul className="rmt-results-page__list">
-						{loading &&
+						{isLoading &&
 							Array.from({ length: 20 }).map((_element, index) => (
 								<li key={index} className="rmt-results-page__list-item">
 									<CardSkeleton />
 								</li>
 							))}
-						{!loading &&
+						{!isLoading &&
 							!!characters.length &&
 							characters.map(({ id, image, name }) => (
 								<li key={id} className="rmt-results-page__list-item">
