@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { UsePaginationStructure } from './types';
 
+const INITIAL_TOTAL_PAGES = 1;
+const INITIAL_PAGE_INITIAL_VALUE = 1;
+
 export const usePagination = (
-	totalPages = 1,
-	initialPage = 1,
+	totalPages = INITIAL_TOTAL_PAGES,
+	initialPage = INITIAL_PAGE_INITIAL_VALUE,
 	onChangePage: (currentPage: number) => void
 ): UsePaginationStructure => {
 	const [currentPage, setCurrentPage] = useState<number>(initialPage);

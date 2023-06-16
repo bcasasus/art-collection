@@ -41,8 +41,8 @@
 			"npm run lint"
 		],
 		"src/**/*.{js,ts,jsx,tsx,css,md,html,json}": [
-			"npm run format",
-			"git add"
-		]
+			"npm run format"
+		],
+		"src":["git add ."]
 	}
 }
