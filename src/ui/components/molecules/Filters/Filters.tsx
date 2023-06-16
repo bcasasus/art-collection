@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useReducer } from 'react';
 import { Button } from '@rmt/atoms';
-import { INITIAL_STATE_FILTERS } from './store/state';
-import { filtersReducer } from './store/reducer';
-import { filtersAction } from './store/actions';
+import { INITIAL_STATE_FILTERS } from './redux/state';
+import { filtersReducer } from './redux/reducer';
+import { filtersAction } from './redux/actions';
 import { FilterProps } from './types';
 import './filters.css';
 
