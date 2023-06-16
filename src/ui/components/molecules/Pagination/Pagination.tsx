@@ -5,11 +5,9 @@ import { PaginationProps } from './types';
 import { usePagination } from '@rmt/hooks';
 import './pagination.css';
 
-const INITIAL_PAGE = 1;
-
 export const Pagination = ({
 	totalPages,
-	initialPage = INITIAL_PAGE,
+	initialPage,
 	onChangePage,
 }: PaginationProps): JSX.Element => {
 	const { nextPage, previousPage, pageCountString } = usePagination(
