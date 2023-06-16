@@ -23,16 +23,16 @@ export const Pagination = ({
 					<Button className="rmt-pagination__button" onClick={previousPage}>
 						<img
 							src={arrowBack}
-							className="rmt-header__logo"
-							alt="React logo"
+							className="rmt-pagination__arrow-back"
+							alt="Arrow back"
 						/>
 					</Button>
 					<span className="rmt-pagination__page-count">{pageCountString}</span>
 					<Button className="rmt-pagination__button" onClick={nextPage}>
 						<img
 							src={arrowForward}
-							className="rmt-header__logo"
-							alt="React logo"
+							className="rmt-pagination__arrow-forward"
+							alt="Arrow forward"
 						/>
 					</Button>
 				</div>
