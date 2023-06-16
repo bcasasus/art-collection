@@ -1,27 +1,31 @@
-import { FormEvent } from 'react';
-import { FilterProps } from './types';
+import { ChangeEvent, FormEvent, useReducer } from 'react';
 import { Button } from '@rmt/atoms';
+import { INITIAL_STATE_FILTERS } from './store/state';
+import { filtersReducer } from './store/reducer';
+import { filtersAction } from './store/actions';
+import { FilterProps } from './types';
 import './filters.css';
 
 export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
-	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const [filters, dispatch] = useReducer(filtersReducer, INITIAL_STATE_FILTERS);
 
-		const form = new FormData(e.target as HTMLFormElement);
-		const parsedData = Object.fromEntries(form.entries());
+	const handleChange = (
+		event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+	) => {
+		const name = event.target.name;
+		const value = event.target.value;
 
-		const filters = Object.keys(parsedData).reduce((filters, key) => {
-			if (parsedData[key] !== 'All' && parsedData[key] !== '') {
-				return {
-					...filters,
-					[key]: parsedData[key],
-				};
-			}
+		dispatch(filtersAction.fieldChange({ name, value }));
+	};
 
-			return filters;
-		}, {});
+	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
 
 		onSubmit(filters);
+	};
+
+	const handleClickReset = () => {
+		dispatch(filtersAction.resetForm());
 	};
 
 	return (
@@ -31,6 +35,8 @@ export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
 				type="search"
 				name="name"
 				placeholder="Type a character name..."
+				value={filters.name}
+				onChange={handleChange}
 			/>
 			<label className="rmt-filters-form__label" htmlFor="select-status">
 				Status
@@ -39,8 +45,10 @@ export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
 				className="rmt-filters-form__select-input"
 				name="status"
 				id="select-status"
+				value={filters.status}
+				onChange={handleChange}
 			>
-				<option value="All">All</option>
+				<option value="">All</option>
 				<option value="Alive">Alive</option>
 				<option value="Dead">Dead</option>
 				<option value="unknown">unknown</option>
@@ -52,8 +60,10 @@ export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
 				className="rmt-filters-form__select-input"
 				name="gender"
 				id="select-gender"
+				value={filters.gender}
+				onChange={handleChange}
 			>
-				<option value="All">All</option>
+				<option value="">All</option>
 				<option value="Female">Female</option>
 				<option value="Male">Male</option>
 				<option value="Genderless">Genderless</option>
@@ -62,7 +72,11 @@ export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
 			<Button className="rmt-filters-form__submit-button" type="submit">
 				FILTER
 			</Button>
-			<Button className="rmt-filters-form__reset-button" type="reset">
+			<Button
+				className="rmt-filters-form__reset-button"
+				type="button"
+				onClick={handleClickReset}
+			>
 				RESET
 			</Button>
 		</form>
