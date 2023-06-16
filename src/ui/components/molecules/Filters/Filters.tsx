@@ -4,7 +4,7 @@ import { Button } from '@rmt/atoms';
 import './filters.css';
 
 export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
-	const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		const form = new FormData(e.target as HTMLFormElement);
@@ -25,7 +25,7 @@ export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
 	};
 
 	return (
-		<form onSubmit={handleOnSubmit} className="rmt-filters-form">
+		<form onSubmit={handleSubmit} className="rmt-filters-form">
 			<input
 				className="rmt-filters-form__search-input"
 				type="search"

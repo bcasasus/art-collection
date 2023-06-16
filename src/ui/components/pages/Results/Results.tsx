@@ -17,7 +17,7 @@ const Results = () => {
 			behavior: 'smooth',
 		});
 
-	const handleOnChangePage = useCallback(
+	const handleChangePagination = useCallback(
 		async (currentPage: number) => {
 			scrollToMain();
 			await fetchCharacters({ page: currentPage });
@@ -25,7 +25,7 @@ const Results = () => {
 		[fetchCharacters]
 	);
 
-	const handleOnSubmitFilters = async (filters: CharacterParams) => {
+	const handleSubmitFilters = async (filters: CharacterParams) => {
 		scrollToMain();
 		await fetchCharacters(filters);
 	};
@@ -34,7 +34,7 @@ const Results = () => {
 		<div className="rmt-results-page">
 			<div className="rmt-results-page__container">
 				<aside className="rmt-results-page__aside">
-					<Filters onSubmit={handleOnSubmitFilters} />
+					<Filters onSubmit={handleSubmitFilters} />
 				</aside>
 				<main className="rmt-results-page__main" ref={resultsMainRef}>
 					<div className="rmt-results-page__results-info">
@@ -76,7 +76,7 @@ const Results = () => {
 
 					<Pagination
 						totalPages={charactersFetchInformation.totalPages}
-						onChangePage={handleOnChangePage}
+						onChangePage={handleChangePagination}
 					/>
 				</main>
 			</div>
