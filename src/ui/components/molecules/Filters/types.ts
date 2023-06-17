@@ -1,5 +1,5 @@
-import { CharacterParams } from '@rmt/services';
+import { CharacterFilters } from '@rmt/model';
 
 export interface FilterProps {
-	onSubmit: (filters: CharacterParams) => void;
+	onSubmit: (filters: CharacterFilters) => void;
 }
