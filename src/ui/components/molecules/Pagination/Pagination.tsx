@@ -2,25 +2,37 @@ import { Button } from '@rmt/atoms';
 import arrowForward from '@rmt/assets/arrowForward.svg';
 import arrowBack from '@rmt/assets/arrowBack.svg';
 import { PaginationProps } from './types';
-import { usePagination } from '@rmt/hooks';
 import './pagination.css';
 
 export const Pagination = ({
 	totalPages,
-	initialPage,
+	currentPage,
 	onChangePage,
 }: PaginationProps): JSX.Element => {
-	const { nextPage, previousPage, pageCountString } = usePagination(
-		totalPages,
-		initialPage,
-		onChangePage
-	);
+	const pageCountString = `${currentPage} / ${totalPages}`;
+
+	const handleClickPreviousPage = () => {
+		if (currentPage === 1) return;
+
+		const previousPage = currentPage - 1;
+		onChangePage(previousPage);
+	};
+
+	const handleClickNextPage = () => {
+		if (currentPage === totalPages) return;
+
+		const nextPage = currentPage + 1;
+		onChangePage(nextPage);
+	};
 
 	return (
 		<div className="rmt-pagination">
 			<div className="rmt-pagination__container">
 				<div className="rmt-pagination__main">
-					<Button className="rmt-pagination__button" onClick={previousPage}>
+					<Button
+						className="rmt-pagination__button"
+						onClick={handleClickPreviousPage}
+					>
 						<img
 							src={arrowBack}
 							className="rmt-pagination__arrow-back"
@@ -28,7 +40,10 @@ export const Pagination = ({
 						/>
 					</Button>
 					<span className="rmt-pagination__page-count">{pageCountString}</span>
-					<Button className="rmt-pagination__button" onClick={nextPage}>
+					<Button
+						className="rmt-pagination__button"
+						onClick={handleClickNextPage}
+					>
 						<img
 							src={arrowForward}
 							className="rmt-pagination__arrow-forward"
