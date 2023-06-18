@@ -1,13 +1,17 @@
 import { ChangeEvent, FormEvent, useReducer } from 'react';
+import { scrollTo } from '@rmt/utils';
 import { Button } from '@rmt/atoms';
 import { INITIAL_STATE_FILTERS } from './redux/state';
 import { filtersReducer } from './redux/reducer';
 import { filtersAction } from './redux/actions';
-import { FilterProps } from './types';
+import { useCharacters } from '../../hooks/useCharacters/useCharacters';
+import { useResultsDispatchContext } from '../../pages/Results/context/useResultsDispatchContext';
 import './filters.css';
 
-export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
+export const Filters = (): JSX.Element => {
 	const [filters, dispatch] = useReducer(filtersReducer, INITIAL_STATE_FILTERS);
+	const { fetchCharacters } = useCharacters();
+	const { setFilters, setPaginationCurrentPage } = useResultsDispatchContext();
 
 	const handleChange = (
 		event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -21,7 +25,15 @@ export const Filters = ({ onSubmit }: FilterProps): JSX.Element => {
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		onSubmit(filters);
+		const mainElement = document.querySelector('.rmt-results-page__main');
+		if (mainElement) {
+			scrollTo(mainElement as HTMLElement);
+		}
+
+		setFilters({ filters: filters });
+		setPaginationCurrentPage({ currentPage: 1 });
+
+		await fetchCharacters(filters);
 	};
 
 	const handleClickReset = () => {
