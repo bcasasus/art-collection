@@ -2,6 +2,7 @@ import { ResultsContextState, ResultsDipatchContextState } from './types';
 
 export const initialResultsContext: ResultsContextState = {
 	characters: [],
+	charactersCount: null,
 	filters: {
 		name: '',
 		status: '',
@@ -11,10 +12,14 @@ export const initialResultsContext: ResultsContextState = {
 		currentPage: 1,
 		totalPages: 1,
 	},
+	isLoading: false,
 };
 
 export const initialResultsDispatchContext: ResultsDipatchContextState = {
 	setCharacters: () => undefined,
+	setCharactersCount: () => undefined,
 	setFilters: () => undefined,
-	setPagination: () => undefined,
+	setPaginationCurrentPage: () => undefined,
+	setPaginationTotalPages: () => undefined,
+	setIsLoading: () => undefined,
 };

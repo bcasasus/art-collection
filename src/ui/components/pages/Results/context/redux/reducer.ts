@@ -1,7 +1,10 @@
 import {
 	CharactersActionPayload,
+	CharactersCountActionPayload,
 	FiltersActionPayload,
-	PaginationActionPayload,
+	IsLoadingActionPayload,
+	PaginationCurrentPageActionPayload,
+	PaginationTotalPagesActionPayload,
 	ResultsContextAction,
 	ResultsContextActionType,
 	ResultsContextState,
@@ -15,6 +18,13 @@ export const handlers = {
 		...state,
 		characters: payload.characters,
 	}),
+	[ResultsContextActionType.SetCharactersCount]: (
+		state: ResultsContextState,
+		payload: CharactersCountActionPayload
+	): ResultsContextState => ({
+		...state,
+		charactersCount: payload.charactersCount,
+	}),
 	[ResultsContextActionType.SetFilters]: (
 		state: ResultsContextState,
 		payload: FiltersActionPayload
@@ -22,12 +32,26 @@ export const handlers = {
 		...state,
 		filters: payload.filters,
 	}),
-	[ResultsContextActionType.SetPagination]: (
+	[ResultsContextActionType.SetPaginationCurrentPage]: (
 		state: ResultsContextState,
-		payload: PaginationActionPayload
+		payload: PaginationCurrentPageActionPayload
 	): ResultsContextState => ({
 		...state,
-		pagination: payload.pagination,
+		pagination: { ...state.pagination, currentPage: payload.currentPage },
+	}),
+	[ResultsContextActionType.SetPaginationTotalPages]: (
+		state: ResultsContextState,
+		payload: PaginationTotalPagesActionPayload
+	): ResultsContextState => ({
+		...state,
+		pagination: { ...state.pagination, totalPages: payload.totalPages },
+	}),
+	[ResultsContextActionType.SetIsLoading]: (
+		state: ResultsContextState,
+		payload: IsLoadingActionPayload
+	): ResultsContextState => ({
+		...state,
+		isLoading: payload.isLoading,
 	}),
 };
 

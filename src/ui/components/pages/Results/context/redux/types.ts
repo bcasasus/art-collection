@@ -1,21 +1,40 @@
-import { Character, CharacterFilters, Pagination } from '@rmt/model';
+import {
+	Character,
+	CharacterFilters,
+	CharactersCount,
+	Pagination,
+} from '@rmt/model';
 
 export type CharactersActionPayload = {
 	characters: Character[];
+};
+
+export type CharactersCountActionPayload = {
+	charactersCount: CharactersCount;
 };
 
 export type FiltersActionPayload = {
 	filters: CharacterFilters;
 };
 
-export type PaginationActionPayload = {
-	pagination: Pagination;
+export type PaginationCurrentPageActionPayload = {
+	currentPage: number;
+};
+export type PaginationTotalPagesActionPayload = {
+	totalPages: number;
+};
+
+export type IsLoadingActionPayload = {
+	isLoading: boolean;
 };
 
 export enum ResultsContextActionType {
 	SetCharacters = 'set characters',
+	SetCharactersCount = 'set characters count',
 	SetFilters = 'set filters',
-	SetPagination = 'set pagination',
+	SetPaginationCurrentPage = 'set pagination current page',
+	SetPaginationTotalPages = 'set pagination total pages',
+	SetIsLoading = 'set is loading',
 }
 
 export type ResultsContextAction = {
@@ -26,12 +45,19 @@ export type ResultsContextAction = {
 
 export type ResultsContextState = {
 	characters: Character[];
+	charactersCount: CharactersCount;
 	filters: CharacterFilters;
 	pagination: Pagination;
+	isLoading: boolean;
 };
 
 export type ResultsDipatchContextState = {
 	setCharacters: (payload: CharactersActionPayload) => void;
+	setCharactersCount: (payload: CharactersCountActionPayload) => void;
 	setFilters: (payload: FiltersActionPayload) => void;
-	setPagination: (payload: PaginationActionPayload) => void;
+	setPaginationCurrentPage: (
+		payload: PaginationCurrentPageActionPayload
+	) => void;
+	setPaginationTotalPages: (payload: PaginationTotalPagesActionPayload) => void;
+	setIsLoading: (payload: IsLoadingActionPayload) => void;
 };
