@@ -1,8 +1,8 @@
-.rmt-results-info {
+.rmt-characters-info {
 	padding: var(--spacing-16);
 }
 
-.rmt-results-info__text {
+.rmt-characters-info__text {
 	text-align: center;
 	font-size: 1.5rem;
 	line-height: 2rem;

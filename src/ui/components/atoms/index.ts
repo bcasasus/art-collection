@@ -1,3 +1,3 @@
 export * from './Image';
 export * from './Button/Button';
-export * from './ResultsInformation/ResultsInformation';
+export * from './CharactersInformation/CharactersInformation';
