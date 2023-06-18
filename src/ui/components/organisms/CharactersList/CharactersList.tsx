@@ -1,9 +1,18 @@
+import { useEffect } from 'react';
 import { Card, CardSkeleton } from '@rmt/molecules';
 import { useCharacters } from '../../hooks/useCharacters/useCharacters';
+import { useResultsContext } from '../../pages/Results/context/useResultsContext';
 import './caractersList.css';
 
 export const CharactersList = () => {
-	const { characters, isLoading } = useCharacters();
+	const { fetchCharacters } = useCharacters();
+	const { characters, isLoading } = useResultsContext();
+
+	useEffect(() => {
+		(async () => {
+			await fetchCharacters({});
+		})();
+	}, [fetchCharacters]);
 
 	return (
 		<ul className="rmt-characters-list">
