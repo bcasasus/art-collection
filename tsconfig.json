@@ -30,7 +30,8 @@
 			"@rmt/layout": ["./src/ui/components/layout/index.ts"],
 			"@rmt/atoms": ["./src/ui/components/atoms/index.ts"],
 			"@rmt/molecules": ["./src/ui/components/molecules/index.ts"],
-			"@rmt/organisms": ["./src/ui/components/organisms/index.ts"]
+			"@rmt/organisms": ["./src/ui/components/organisms/index.ts"],
+			"@rmt/utils": ["./src/utils/index.ts"]
 		}
 	},
 	"include": ["src"],

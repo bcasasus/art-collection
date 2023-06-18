@@ -69,6 +69,10 @@ export default defineConfig({
 					'src/ui/components/organisms/index.ts'
 				),
 			},
+			{
+				find: '@rmt/utils',
+				replacement: path.resolve(__dirname, 'src/utils/index.ts'),
+			},
 		],
 	},
 });

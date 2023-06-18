@@ -1,15 +1,21 @@
 import { ReactNode, createContext, useMemo, useReducer } from 'react';
 import {
 	CharactersActionPayload,
+	CharactersCountActionPayload,
 	FiltersActionPayload,
-	PaginationActionPayload,
+	IsLoadingActionPayload,
+	PaginationCurrentPageActionPayload,
+	PaginationTotalPagesActionPayload,
 	ResultsDipatchContextState,
 } from './redux/types';
 import { resultsContextReducer } from './redux/reducer';
 import {
 	setCharactersAction,
+	setCharactersCountAction,
 	setFiltersAction,
-	setPaginationAction,
+	setIsLoadingAction,
+	setPaginationCurrentPageAction,
+	setPaginationTotalPagesAction,
 } from './redux/action';
 import {
 	initialResultsContext,
@@ -34,10 +40,16 @@ export const ResultsContextProvider = ({
 		() => ({
 			setCharacters: (payload: CharactersActionPayload) =>
 				dispatch(setCharactersAction(payload)),
+			setCharactersCount: (payload: CharactersCountActionPayload) =>
+				dispatch(setCharactersCountAction(payload)),
 			setFilters: (payload: FiltersActionPayload) =>
 				dispatch(setFiltersAction(payload)),
-			setPagination: (payload: PaginationActionPayload) =>
-				dispatch(setPaginationAction(payload)),
+			setPaginationCurrentPage: (payload: PaginationCurrentPageActionPayload) =>
+				dispatch(setPaginationCurrentPageAction(payload)),
+			setPaginationTotalPages: (payload: PaginationTotalPagesActionPayload) =>
+				dispatch(setPaginationTotalPagesAction(payload)),
+			setIsLoading: (payload: IsLoadingActionPayload) =>
+				dispatch(setIsLoadingAction(payload)),
 		}),
 		[dispatch]
 	);

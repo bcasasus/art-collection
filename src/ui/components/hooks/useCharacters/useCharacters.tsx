@@ -1,46 +1,41 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { api } from '@rmt/api';
 import { CharacterParams, mapCharacters } from '@rmt/services';
-import { Character, CharactersFetchInformation } from '@rmt/model';
-
-const CHARACTER_RESULTS_INFORMATION_INITIAL_STATE = {
-	totalPages: 0,
-	totalCharactersCount: 0,
-};
+import { useResultsDispatchContext } from '../../pages/Results/context/useResultsDispatchContext';
 
 export const useCharacters = () => {
-	const [characters, setCharacters] = useState<Character[]>([]);
-	const [charactersFetchInformation, setCharactersFetchInformation] =
-		useState<CharactersFetchInformation>(
-			CHARACTER_RESULTS_INFORMATION_INITIAL_STATE
-		);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const {
+		setCharacters,
+		setCharactersCount,
+		setPaginationTotalPages,
+		setIsLoading,
+	} = useResultsDispatchContext();
 
-	const fetchCharacters = useCallback(async (params: CharacterParams) => {
-		try {
-			setIsLoading(true);
-			const response = await api.fetchCharacters(params);
-			const characters = mapCharacters(response);
+	const fetchCharacters = useCallback(
+		async (params: CharacterParams) => {
+			try {
+				setIsLoading({ isLoading: true });
 
-			setCharacters(characters.results);
-			setCharactersFetchInformation(characters.resultsInfo);
-			setIsLoading(false);
-		} catch {
-			setCharacters([]);
-			setIsLoading(false);
-		}
-	}, []);
+				const response = await api.fetchCharacters(params);
+				const characters = mapCharacters(response);
 
-	useEffect(() => {
-		(async () => {
-			await fetchCharacters({});
-		})();
-	}, [fetchCharacters]);
+				setCharacters({ characters: characters.results });
+				setCharactersCount({
+					charactersCount: characters.resultsInfo.totalCharactersCount,
+				});
+				setPaginationTotalPages({
+					totalPages: characters.resultsInfo.totalPages,
+				});
+				setIsLoading({ isLoading: false });
+			} catch {
+				setCharacters({ characters: [] });
+				setIsLoading({ isLoading: false });
+			}
+		},
+		[setCharacters, setCharactersCount, setPaginationTotalPages, setIsLoading]
+	);
 
 	return {
-		characters,
-		charactersFetchInformation,
-		isLoading,
 		fetchCharacters,
 	};
 };

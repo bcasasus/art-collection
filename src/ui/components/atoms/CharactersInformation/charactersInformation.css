@@ -1,0 +1,9 @@
+.rmt-characters-info {
+	padding: var(--spacing-16);
+}
+
+.rmt-characters-info__text {
+	text-align: center;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}

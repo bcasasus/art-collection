@@ -15,7 +15,7 @@ export interface Location {
 	url: string;
 }
 
-export interface CharactersFetchInformation {
+export interface CharactersInformation {
 	totalPages: number;
 	totalCharactersCount: number;
 }
@@ -25,3 +25,5 @@ export type CharacterFilters = {
 	status: string;
 	gender: string;
 };
+
+export type CharactersCount = number | null;

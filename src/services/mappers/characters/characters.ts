@@ -1,18 +1,20 @@
-import { Character, CharactersFetchInformation } from '@rmt/model';
+import { Character, CharactersInformation } from '@rmt/model';
 import {
-	InfoApiResponse,
+	CharactersInfoApiResponse,
 	type CharactersApiResponse,
-	type ResultsApiResponse,
+	type CharactersResultsApiResponse,
 } from '@rmt/services';
 
 export const mapCharacters = (apiResponse: CharactersApiResponse) => ({
-	results: mapResults(apiResponse.results),
-	resultsInfo: mapResultsInfo(apiResponse.info),
+	results: mapCharactersResults(apiResponse.results),
+	resultsInfo: mapCharactersResultsInfo(apiResponse.info),
 });
 
-export const mapResults = (results: ResultsApiResponse[]): Character[] =>
+export const mapCharactersResults = (
+	results: CharactersResultsApiResponse[]
+): Character[] =>
 	results.map(
-		(character: ResultsApiResponse): Character => ({
+		(character: CharactersResultsApiResponse): Character => ({
 			id: character.id,
 			name: character.name,
 			status: character.status,
@@ -25,9 +27,9 @@ export const mapResults = (results: ResultsApiResponse[]): Character[] =>
 		})
 	);
 
-export const mapResultsInfo = (
-	info: InfoApiResponse
-): CharactersFetchInformation => ({
+export const mapCharactersResultsInfo = (
+	info: CharactersInfoApiResponse
+): CharactersInformation => ({
 	totalPages: info.pages,
 	totalCharactersCount: info.count,
 });
