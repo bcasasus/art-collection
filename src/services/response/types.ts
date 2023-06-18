@@ -1,18 +1,18 @@
 import { Location } from '@rmt/model';
 
 export interface CharactersApiResponse {
-	info: InfoApiResponse;
-	results: ResultsApiResponse[];
+	info: CharactersInfoApiResponse;
+	results: CharactersResultsApiResponse[];
 }
 
-export interface InfoApiResponse {
+export interface CharactersInfoApiResponse {
 	count: number;
 	next: string | null;
 	pages: number;
 	prev: string | null;
 }
 
-export interface ResultsApiResponse {
+export interface CharactersResultsApiResponse {
 	id: number;
 	name: string;
 	status: 'Alive' | 'Dead';
